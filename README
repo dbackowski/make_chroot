@@ -1,0 +1,30 @@
+Debian 6.0 (squeeze) shell script to set up chrooted user account.
+
+-------------------------------------------------------------
+
+USAGE:
+Create new chrooted account or
+add existing User to chroot-jail:
+-> ./make_chroot.sh username
+
+or specify the chroot-shell file and path where the jail should be located:
+-> ./make_chroot.sh username [/path/to/chroot-shell [/path/to/jail]]
+Default shell       = /bin/chroot-shell
+Default chroot-path = /home/jail
+-------------------------------------------------------------
+
+Updating files in the chroot-jail:
+-> ./make_chroot.sh update [/path/to/chroot-shell [/path/to/jail]]
+-------------------------------------------------------------
+
+To uninstall:
+ # userdel $USER
+ # rm -rf /home/jail
+ (this deletes all Users' files!)
+ # rm -f /bin/chroot-shell
+ manually delete the User's line from /etc/sudoers
+
+
+This script is based on http://www.fuschlberger.net/programs/ssh-scp-sftp-chroot-jail by Wolfgang Fuschlberger.
+
+Copyright (c) 2012 [Damian Baćkowski], released under the GPL v2 license. 

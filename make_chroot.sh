@@ -141,8 +141,6 @@ fi
 #if !(grep -v "^#" /etc/ssh/sshd_config | grep -i sftp-server /etc/ssh/sshd_config | awk  '{ print $3}' &> /dev/null); then
 APPS="$APPS $SFTP_SERVER"
 
-echo "AAAAAAAAAAAAAAAAAAA ${SFTP_SERVER}"
-
 # Get accountname to create / move
 CHROOT_USERNAME=$1
 

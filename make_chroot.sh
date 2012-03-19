@@ -234,7 +234,8 @@ if [ "$1" != "update" ]; then
 # Modifiy /etc/sudoers to enable chroot-ing for users
 # must be removed by hand if account is deleted
 echo "Modifying /etc/sudoers"
-echo "$CHROOT_USERNAME       ALL=NOPASSWD: `which chroot`, /bin/su - $CHROOT_USERNAME" >> /etc/sudoers
+echo "$CHROOT_USERNAME       ALL=(ALL) NOPASSWD: `which chroot`" >> /etc/sudoers
+echo "$CHROOT_USERNAME       ALL=(ALL) NOPASSWD: /bin/su - $CHROOT_USERNAME" >> /etc/sudoers
 
 # Define HomeDir for simple referencing
 HOMEDIR="$JAILPATH/home/$CHROOT_USERNAME"
